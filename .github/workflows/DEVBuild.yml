@@ -16,6 +16,7 @@ on:
            description: 'Enter Sprint branch'
            type: string
            required: true
+  workflow_call:
 
 jobs:
   DEV:
