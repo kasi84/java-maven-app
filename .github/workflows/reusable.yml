@@ -6,12 +6,6 @@ on:
       username:
         required: true
         type: string
-      branch:
-        required: true
-        type: string
-    secrets:
-      token:
-        required: true
   workflow_dispatch:
     inputs:
       username:
@@ -41,9 +35,7 @@ jobs:
       - name: Local Action Output
         run: echo "${{ steps.local-action.outputs.random }}"
   DEV:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout process
       uses: actions/checkout@v3 # Necessary to access local action
@@ -59,23 +51,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B -X package --file simple-java-maven-app/pom.xml
-  publish-job:
-    runs-on: ubuntu-latest
-    needs: DEV
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        repository: Soorya8docker/simple-java-maven-app
-        path: simple-java-maven-app
-        ref: ${{ inputs.branch }}
-    - uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-    - run: |
-          cd /home/runner/work/ReusableWorkflow/ReusableWorkflow/simple-java-maven-app
-          mvn --batch-mode --update-snapshots verify
-    - uses: actions/upload-artifact@v4
-      with:
-        name: Package
-        path: simple-java-maven-app
+  
+  
