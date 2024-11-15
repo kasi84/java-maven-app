@@ -64,6 +64,10 @@ jobs:
     needs: DEV
     steps:
     - uses: actions/checkout@v4
+      with:
+        repository: Soorya8docker/simple-java-maven-app
+        path: simple-java-maven-app
+        ref: ${{ inputs.branch }}
     - uses: actions/setup-java@v4
       with:
         java-version: '17'
