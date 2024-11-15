@@ -45,9 +45,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Local Action Call Without Input
+      id: local-action
+      uses: ./.github/actions/local-action
       with:
-       ref: ${{ inputs.branch }}
+        ref: ${{ inputs.branch }}
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
