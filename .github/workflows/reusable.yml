@@ -75,7 +75,7 @@ jobs:
     - run: |
           cd /home/runner/work/ReusableWorkflow/ReusableWorkflow/simple-java-maven-app
           mvn --batch-mode --update-snapshots verify
-    - run: mkdir staging && cp *.jar staging
+    - run: mkdir staging && cp /home/runner/work/ReusableWorkflow/ReusableWorkflow/simple-java-maven-app/*.jar staging
     - uses: actions/upload-artifact@v4
       with:
         name: Package
