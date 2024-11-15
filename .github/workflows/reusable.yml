@@ -78,3 +78,4 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: Package
+        path: simple-java-maven-app
