@@ -7,10 +7,6 @@ on:
         required: true
         type: string
   workflow_dispatch:
-    inputs:
-      username:
-        required: true
-        type: string
 
 jobs:
   test:
