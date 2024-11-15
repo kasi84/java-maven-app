@@ -50,8 +50,12 @@ jobs:
       with:
         repository: Soorya8docker/simple-java-maven-app
         path: simple-java-maven-app
-    - name: Local Action Call Without Input
-      id: local-action
-      uses: Soorya8docker/simple-java-maven-app/.github/actions/local-action@master
-      with:
         ref: ${{ inputs.branch }}
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B -X package --file pom.xml
