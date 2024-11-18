@@ -54,9 +54,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B -X package --file simple-java-maven-app/pom.xml
-    - name: Upload jar
-      run: mkdir staging && cp *.jar staging
-    - uses: actions/upload-artifact@v4
+    - name: Move JAR files
+      run: |
+        mkdir -p staging
+        cp target/*.jar staging
+    - name: Upload JAR files
+      uses: actions/upload-artifact@v3
       with:
-        name: Package
-        path: staging
+        name: jar-files
+        path: staging/
