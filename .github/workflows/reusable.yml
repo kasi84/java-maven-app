@@ -54,6 +54,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B -X package --file simple-java-maven-app/pom.xml
+    - name: List Files
+      run: ls -R .
     - name: Move JAR files
       run: |
         mkdir -p staging
