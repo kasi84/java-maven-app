@@ -54,8 +54,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B -X package --file simple-java-maven-app/pom.xml
-    - run: mvn --batch-mode --update-snapshots verify
-    - run: mkdir staging && cp target/*.jar staging
+    - name: Upload jar
+      run: mkdir staging && cp target/*.jar staging
     - uses: actions/upload-artifact@v4
       with:
         name: Package
