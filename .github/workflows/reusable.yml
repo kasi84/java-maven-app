@@ -27,19 +27,6 @@ jobs:
         if: ${{ inputs.branch }} != ''
         run: echo ${{ inputs.username }} ${{ inputs.branch }} ${{ inputs.repo }}
 
-      - name: Inputs branch (workflow dispatch)
-        if: ${{ github.event.inputs.branch }} != ''
-        run: echo ${{ github.event.inputs.branch }}
-
-      - uses: actions/checkout@v2.3.4 # Necessary to access local action
-      
-      - name: Local Action Call Without Input
-        id: local-action
-        uses: ./.github/actions/local-action
-        with:
-          name: "World"
-      - name: Local Action Output
-        run: echo "${{ steps.local-action.outputs.random }}"
   DEV:
     runs-on: ubuntu-latest
     steps:
@@ -56,7 +43,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B -X package --file simple-java-maven-app/pom.xml
+      run: mvn -B -X package --file ${{ inputs.repo }}/pom.xml
     - name: Move JAR files
       run: |
         mkdir -p staging
