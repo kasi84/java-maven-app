@@ -9,6 +9,9 @@ on:
       branch:
         required: true
         type: string
+      repo:
+        required: true
+        type: string
     secrets:
       token:
         required: true
@@ -22,7 +25,7 @@ jobs:
     steps:
       - name: Inputs branch (workflow call)
         if: ${{ inputs.branch }} != ''
-        run: echo ${{ inputs.branch }}
+        run: echo ${{ inputs.username }} ${{ inputs.branch }} ${{ inputs.repo }}
 
       - name: Inputs branch (workflow dispatch)
         if: ${{ github.event.inputs.branch }} != ''
