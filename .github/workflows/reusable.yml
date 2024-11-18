@@ -46,8 +46,8 @@ jobs:
     - name: Checkout process
       uses: actions/checkout@v3 # Necessary to access local action
       with:
-        repository: Soorya8docker/simple-java-maven-app
-        path: simple-java-maven-app
+        repository: Soorya8docker/${{ inputs.repo }}
+        path: ${{ inputs.repo }}
         ref: ${{ inputs.branch }}
     - name: Set up JDK 17
       uses: actions/setup-java@v4
