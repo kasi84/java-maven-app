@@ -59,7 +59,7 @@ jobs:
     - name: Move JAR files
       run: |
         mkdir -p staging
-        cp target/*.jar staging
+        cp simple-java-maven-app/target/*.jar staging
     - name: Upload JAR files
       uses: actions/upload-artifact@v3
       with:
