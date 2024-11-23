@@ -47,5 +47,5 @@ jobs:
     - name: Upload JAR files
       uses: actions/upload-artifact@v3
       with:
-        name: jar-files
+        name: simple-jar-files
         path: staging/
