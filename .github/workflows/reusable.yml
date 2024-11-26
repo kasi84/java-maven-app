@@ -17,6 +17,22 @@ on:
         required: true
 
   workflow_dispatch:
+      inputs:
+      username:
+        required: true
+        type: string
+        default: Soorya8docker
+      branch:
+        required: true
+        type: string
+        default: master
+      repo:
+        required: true
+        type: string
+        default: simple-java-maven-app
+    secrets:
+      token:
+        required: true
 
 jobs:
   DEV:
