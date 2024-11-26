@@ -15,8 +15,9 @@ on:
     secrets:
       token:
         required: true
+
   workflow_dispatch:
-      inputs:
+    inputs:
       username:
         required: true
         type: string
@@ -29,10 +30,6 @@ on:
         required: true
         type: string
         default: simple-java-maven-app
-    secrets:
-      token:
-        required: true
-
 jobs:
   DEV:
     runs-on: ubuntu-latest
