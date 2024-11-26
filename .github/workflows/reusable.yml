@@ -57,7 +57,7 @@ jobs:
         mkdir -p staging
         cp ${{ inputs.repo }}/target/*.jar staging
     - name: Upload JAR files
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ inputs.repo }}-jar-files
         path: staging/
