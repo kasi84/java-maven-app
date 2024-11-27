@@ -33,7 +33,6 @@ on:
 jobs:
   DEV:
     runs-on: ubuntu-latest
-    environment: Dev
     steps:
     - name: Inputs branch (workflow call)
       if: ${{ inputs.branch }} != ''
