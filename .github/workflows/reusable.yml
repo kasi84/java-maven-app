@@ -41,7 +41,7 @@ jobs:
     - name: Checkout process
       uses: actions/checkout@v3 # Necessary to access local action
       with:
-        repository: kasi84/${{ inputs.repo }}
+        repository: ${{ inputs.username }}/${{ inputs.repo }}
         path: ${{ inputs.repo }}
         ref: ${{ inputs.branch }}
     - name: Set up JDK 17
